@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  backend:
+    build: ./backend
+    container_name: backend
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      PORT: 5000
+      CLIENT_URL: http://localhost:3000
+      MONGO_URL: "mongodb+srv://apurvchitransh:uTAWXybDEJSOEZ1r@dockertut.pujyfqe.mongodb.net/?retryWrites=true&w=majority"
+
+  frontend:
+    build: 
+      context: ./frontend
+      args:
+        - VITE_API_URL=http://localhost:5000/api/todos
+    container_name: frontend
+    restart: always
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
