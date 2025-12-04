@@ -9,7 +9,7 @@ services:
       - "5000:5000"
     environment:
       PORT: 5000
-      CLIENT_URL: http://localhost:80
+      CLIENT_URL: http://13.126.69.165
       MONGO_URL: "mongodb+srv://apurvchitransh:uTAWXybDEJSOEZ1r@dockertut.pujyfqe.mongodb.net/?retryWrites=true&w=majority"
 
   frontend:
